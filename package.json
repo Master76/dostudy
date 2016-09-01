@@ -1,0 +1,17 @@
+{
+  "name": "dostudy",
+  "version": "1.0.0",
+  "description": "do some study",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Masteryu",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^1.4.0",
+    "express": "^4.14.0",
+    "isomer": "^0.2.6",
+    "ws": "^1.1.1"
+  }
+}
