@@ -32,7 +32,9 @@ wss.on('connection', function(ws) {
         main(filepath);
 
         const jobj = {};
-        jobj.imgsrc = filename + '?=' + Date.now();
+        var sent = new Date() - 0;
+        jobj.imgsrc = filename + '?=' + sent;
+        jobj.sent = sent;
         ws.send(JSON.stringify(jobj), function () { /* ignore errors */ });
         
     }, 40);
