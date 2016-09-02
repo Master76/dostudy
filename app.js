@@ -1,10 +1,10 @@
-const WebSocketServer = require('ws').Server,
+var WebSocketServer = require('ws').Server,
     http = require('http'),
     express = require('express'),
-    createImage = require('./main.js');
+    main = require('./main.js');
 
-const app = express();;
-const port = 8080;
+const app = express();
+const port = require('./config/settings.js').port;
 
 const Color = require('isomer').Color;
 
@@ -29,13 +29,13 @@ wss.on('connection', function(ws) {
         color1 = new Color(60 - tmp, 60 - tmp, 240 - tmp * 4);
         color2 = new Color(0 + tmp * 4, tmp, tmp);
         counter = (counter + 1) % 120;
-        createImage(color1, color2, filepath);
+        main(filepath);
 
         const jobj = process.memoryUsage();
         jobj.imgsrc = filename + '?=' + Date.now();
         ws.send(JSON.stringify(jobj), function () { /* ignore errors */ });
         
-    }, 50);
+    }, 40);
 
     console.log('started client interval');
 
