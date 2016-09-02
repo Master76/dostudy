@@ -31,7 +31,7 @@ wss.on('connection', function(ws) {
         counter = (counter + 1) % 120;
         main(filepath);
 
-        const jobj = process.memoryUsage();
+        const jobj = {};
         jobj.imgsrc = filename + '?=' + Date.now();
         ws.send(JSON.stringify(jobj), function () { /* ignore errors */ });
         
